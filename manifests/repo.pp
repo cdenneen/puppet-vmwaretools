@@ -218,7 +218,7 @@ class vmwaretools::repo (
           }
 
           include '::apt'
-          if versioncmp($puppetversion, '4') < 0 {
+          if versioncmp($::puppetversion, '4') < 0 {
             apt::source { 'vmware-tools':
               ensure     => $ensure,
               comment    => "VMware Tools ${tools_version} - ${vmwaretools::params::baseurl_string} ${::lsbdistcodename}",
@@ -229,9 +229,9 @@ class vmwaretools::repo (
             }
           }else{
             apt::source { 'vmware-tools':
-              ensure     => $ensure,
-              comment    => "VMware Tools ${tools_version} - ${vmwaretools::params::baseurl_string} ${::lsbdistcodename}",
-              location   => $baseurl_url,
+              ensure   => $ensure,
+              comment  => "VMware Tools ${tools_version} - ${vmwaretools::params::baseurl_string} ${::lsbdistcodename}",
+              location => $baseurl_url,
               key      => {
                 source => $gpgkey,
                 id     => '36E47E1CC4DCC5E8152D115CC0B5E0AB66FD4949',
