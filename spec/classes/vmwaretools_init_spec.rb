@@ -207,7 +207,7 @@ describe 'vmwaretools', :type => 'class' do
         :architecture           => 'amd64',
         :lsbdistcodename        => 'precise',
         :lsbdistid              => 'Ubuntu',
-        :puppetversion          => '4.7.1'
+        :puppetversion          => Puppet.version
       }
       end
       it { should contain_class('vmwaretools::repo').with(
